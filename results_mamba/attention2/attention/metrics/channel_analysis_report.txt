@@ -1,0 +1,60 @@
+======================================================================
+MAMBA CHANNEL ATTENTION ANALYSIS REPORT
+======================================================================
+
+MODEL: MambaClassifier with Channel Attention
+Validation Accuracy: 0.8696
+Total Channels: 18
+Mean Attention Weight: 0.5032
+Std Attention Weight: 0.0380
+
+CHANNEL IMPORTANCE RANKING:
+--------------------------------------------------
+Rank   Channel    Weight       % of Max    
+--------------------------------------------------
+1      11         0.5702       100.0       %
+2      18         0.5652       99.1        %
+3      10         0.5640       98.9        %
+4      8          0.5376       94.3        %
+5      15         0.5302       93.0        %
+6      4          0.5230       91.7        %
+7      2          0.5213       91.4        %
+8      17         0.5058       88.7        %
+9      13         0.4950       86.8        %
+10     3          0.4935       86.5        %
+11     12         0.4906       86.0        %
+12     7          0.4810       84.3        %
+13     5          0.4790       84.0        %
+14     14         0.4765       83.6        %
+15     16         0.4638       81.3        %
+16     6          0.4633       81.2        %
+17     1          0.4578       80.3        %
+18     9          0.4405       77.2        %
+
+
+RECOMMENDATIONS:
+--------------------------------------------------
+1. For 80% of discriminative power: Use top 15 channels
+2. For 90% of discriminative power: Use top 16 channels
+3. Minimal setup (70% power): Use top 12 channels
+
+TOP CHANNELS TO FOCUS ON:
+--------------------------------------------------
+Channel 11 (weight: 0.5702)
+Channel 18 (weight: 0.5652)
+Channel 10 (weight: 0.5640)
+Channel 8 (weight: 0.5376)
+Channel 15 (weight: 0.5302)
+Channel 4 (weight: 0.5230)
+Channel 2 (weight: 0.5213)
+Channel 17 (weight: 0.5058)
+Channel 13 (weight: 0.4950)
+Channel 3 (weight: 0.4935)
+
+CHANNELS TO CONSIDER REMOVING:
+--------------------------------------------------
+Channel 9 (weight: 0.4405)
+Channel 1 (weight: 0.4578)
+Channel 6 (weight: 0.4633)
+Channel 16 (weight: 0.4638)
+Channel 14 (weight: 0.4765)

@@ -1,0 +1,561 @@
+COMPREHENSIVE GAIT FEATURES FOR PARKINSON'S DISEASE DETECTION
+================================================================================
+
+This document describes all 85 handcrafted gait features and their significance
+in distinguishing Parkinson's disease from healthy controls.
+
+FEATURE CATEGORIES:
+1. Temporal Gait Features (Basic Timing)
+2. Nonlinear Dynamics Features (Critical for PD)
+3. Gait Phase Features  
+4. Force Production Features
+5. Signal Quality & Smoothness
+6. Bilateral Asymmetry Features
+
+================================================================================
+1. TEMPORAL GAIT FEATURES (Basic Timing)
+================================================================================
+
+L_stride_time_mean
+------------------
+Description: Average time between consecutive left foot heel strikes
+Normal Range: 1.0-1.2 seconds in healthy adults
+PD Distinction: Parkinson's patients typically have SHORTER stride times due to:
+- Bradykinesia (slowness of movement)
+- Shuffling gait pattern
+- Reduced step length
+Why: Dopamine depletion affects basal ganglia timing control, leading to hurried, 
+     shortened steps as a compensatory mechanism for instability.
+
+L_stride_time_std
+-----------------
+Description: Standard deviation of left stride times
+Normal: Low variability (0.02-0.08s)
+PD Distinction: INCREASED variability in PD due to:
+- Irregular stepping rhythm
+- Loss of automatic movement control
+- Freezing episodes
+Why: Basal ganglia dysfunction disrupts internal timing mechanisms, causing 
+     unpredictable stride timing.
+
+L_stride_time_cv
+----------------
+Description: Coefficient of variation (std/mean) for left stride time
+Normal: 2-8% in healthy gait
+PD Distinction: SIGNIFICANTLY INCREASED (10-25%) in PD because:
+- Greater proportional variability relative to mean stride time
+- Inconsistent motor output
+Why: Loss of dopamine-mediated motor rhythm generation in substantia nigra.
+
+R_stride_time_mean, R_stride_time_std, R_stride_time_cv
+--------------------------------------------------------
+Description: Same as left features but for right foot
+PD Distinction: Similar patterns as left side, but may show ASYMMETRY in 
+                early-stage PD (hemiparkinsonism)
+
+================================================================================
+2. NONLINEAR DYNAMICS FEATURES (Most Critical for PD Detection)
+================================================================================
+
+L_dfa_alpha (Detrended Fluctuation Analysis)
+--------------------------------------------
+Description: Fractal scaling exponent measuring long-range correlations in stride intervals
+Normal Range: 0.8-1.0 (healthy fractal gait)
+PD Distinction: DECREASED α < 0.8 indicates:
+- Loss of complex, adaptive gait patterns
+- More rigid, stereotyped walking
+- Reduced capacity for stride-to-stride adjustments
+Why: Healthy gait exhibits fractal properties (self-similar patterns across time scales)
+     due to flexible neural control. PD disrupts this, creating more random or 
+     overly regular patterns.
+
+R_dfa_alpha
+-----------
+Description: Right foot fractal scaling
+PD Distinction: Same pattern as left, but asymmetry may occur in unilateral PD
+
+L_poincare_SD1 (Poincaré Plot Short-term Variability)
+-----------------------------------------------------
+Description: Instantaneous stride-to-stride adjustments
+Normal: Represents healthy automatic gait adjustments
+PD Distinction: DECREASED SD1 indicates:
+- Reduced ability to make fine step-to-step corrections
+- Loss of gait automaticity
+- Increased reliance on conscious control
+Why: Basal ganglia normally provide automatic movement adjustments. PD patients
+     must consciously control each step, reducing natural variability.
+
+L_poincare_SD2 (Poincaré Plot Long-term Variability)
+----------------------------------------------------
+Description: Overall stride pattern variability across multiple steps
+PD Distinction: May be DECREASED or altered, indicating:
+- Loss of adaptive capacity over longer sequences
+- Reduced response to environmental changes
+Why: Inability to modulate gait pattern based on changing conditions or fatigue.
+
+L_poincare_SD_ratio (SD1/SD2)
+------------------------------
+Description: Balance between short-term and long-term variability
+PD Distinction: ALTERED ratio indicates imbalance in:
+- Automatic vs voluntary control mechanisms
+- Immediate corrections vs overall pattern adaptation
+Why: Disproportionate loss of automatic control relative to voluntary control.
+
+R_poincare_SD1, R_poincare_SD2, R_poincare_SD_ratio
+----------------------------------------------------
+Description: Right foot Poincaré features
+PD Distinction: Same patterns, with potential asymmetry in early PD
+
+L_sample_entropy
+----------------
+Description: Measures regularity/complexity of stride interval series
+Normal: Moderate values (1.0-2.0) indicate healthy complexity
+PD Distinction: DECREASED values indicate:
+- More regular, predictable stride patterns
+- Loss of natural gait complexity
+- Overly stereotyped movement
+Why: Healthy gait has inherent complexity from multiple neural systems interacting.
+     PD simplifies this to more rigid, less adaptive patterns.
+
+R_sample_entropy
+----------------
+Description: Right foot stride regularity
+PD Distinction: Same decrease as left side
+
+L_rqa_determinism (Recurrence Quantification Analysis)
+------------------------------------------------------
+Description: Percentage of recurrent, predictable patterns in gait
+Normal: Moderate determinism reflects structured variability
+PD Distinction: DECREASED determinism indicates:
+- Less predictable gait patterns
+- Increased randomness in stepping
+- Loss of motor program consistency
+Why: Disruption of stable motor programs in basal ganglia-thalamocortical circuits.
+
+L_rqa_avg_diagonal
+------------------
+Description: Average length of predictable sequences
+PD Distinction: SHORTER sequences indicate:
+- Brief periods of stability interrupted by irregularities
+- Inability to maintain consistent rhythm
+Why: Intermittent breakdown of motor control due to dopamine deficiency.
+
+L_rqa_max_diagonal
+------------------
+Description: Maximum length of predictable sequences
+PD Distinction: SHORTER maximum sequences indicate:
+- Limited capacity for sustained rhythmic walking
+- Frequent gait disruptions
+Why: Reduced stability of motor output over time.
+
+L_rqa_entropy
+-------------
+Description: Complexity of recurrence patterns
+PD Distinction: DECREASED entropy indicates:
+- Simpler, less complex dynamic structure
+- Reduced adaptive capacity
+Why: Loss of multifactorial neural control integration.
+
+R_rqa_determinism, R_rqa_avg_diagonal, R_rqa_max_diagonal, R_rqa_entropy
+-------------------------------------------------------------------------
+Description: Right foot RQA features
+PD Distinction: Same patterns with potential asymmetry
+
+================================================================================
+3. ENHANCED VARIABILITY FEATURES
+================================================================================
+
+L_consecutive_variability
+-------------------------
+Description: Average absolute difference between consecutive strides
+PD Distinction: INCREASED variability indicates:
+- Unstable, erratic stepping
+- Poor step-to-step consistency
+- Freezing or festination episodes
+Why: Impaired internal cueing and rhythm generation.
+
+L_consecutive_var_cv
+--------------------
+Description: Variability of consecutive differences
+PD Distinction: INCREASED CV indicates:
+- Inconsistent step-to-step adjustments
+- Unpredictable gait pattern changes
+Why: Fluctuating dopamine levels and motor control instability.
+
+R_consecutive_variability, R_consecutive_var_cv
+-----------------------------------------------
+Description: Right foot consecutive variability
+PD Distinction: Same increases, potential asymmetry
+
+L_mean_asymmetry
+----------------
+Description: Average asymmetry between consecutive strides
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven step timing
+- Irregular rhythm
+- Uncoordinated lower limb movement
+Why: Differential impairment of left vs right motor pathways.
+
+L_max_asymmetry
+---------------
+Description: Maximum asymmetry in stride series
+PD Distinction: INCREASED maximum asymmetry indicates:
+- Occasional severe timing disruptions
+- Episodic gait breakdown
+- Freezing episodes
+Why: Periodic complete loss of motor coordination.
+
+R_mean_asymmetry, R_max_asymmetry
+---------------------------------
+Description: Right foot asymmetry measures
+PD Distinction: Same patterns
+
+================================================================================
+4. GAIT PHASE FEATURES
+================================================================================
+
+L_stance_phase_mean
+-------------------
+Description: Average left foot ground contact time
+Normal: 60-64% of gait cycle
+PD Distinction: INCREASED stance time due to:
+- Prolonged double support for stability
+- Reduced confidence in single-leg support
+- Slower weight transfer
+Why: Compensatory strategy for postural instability and balance deficits.
+
+L_stance_phase_std
+------------------
+Description: Variability in stance duration
+PD Distinction: INCREASED variability indicates:
+- Inconsistent foot placement
+- Unreliable weight acceptance
+- Balance corrections
+Why: Unpredictable motor output and balance control.
+
+L_stance_phase_cv
+-----------------
+Description: Coefficient of variation for stance time
+PD Distinction: INCREASED CV indicates proportional instability
+Why: Greater relative inconsistency in fundamental gait phase.
+
+R_stance_phase_mean, R_stance_phase_std, R_stance_phase_cv
+----------------------------------------------------------
+Description: Right foot stance features
+PD Distinction: Same patterns, potential asymmetry
+
+L_swing_phase_mean
+------------------
+Description: Average left foot aerial phase time
+Normal: 36-40% of gait cycle
+PD Distinction: DECREASED swing time due to:
+- Shuffling gait (reduced foot clearance)
+- Festination (hurried steps)
+- Reduced step length
+Why: Difficulty with leg elevation and forward propulsion.
+
+L_swing_phase_std
+-----------------
+Description: Variability in swing duration
+PD Distinction: INCREASED variability indicates:
+- Inconsistent leg advancement
+- Variable foot clearance
+- Unreliable stepping
+Why: Impaired motor coordination during dynamic phase.
+
+L_swing_phase_cv
+----------------
+Description: Coefficient of variation for swing time
+PD Distinction: INCREASED CV indicates proportional inconsistency
+Why: Unreliable execution of most dynamic gait phase.
+
+R_swing_phase_mean, R_swing_phase_std, R_swing_phase_cv
+--------------------------------------------------------
+Description: Right foot swing features
+PD Distinction: Same patterns
+
+L_double_support_mean
+---------------------
+Description: Average time both feet are on ground
+Normal: 10-20% of gait cycle
+PD Distinction: INCREASED double support time due to:
+- Enhanced stability strategy
+- Reduced single-leg balance confidence
+- Slower weight transfers
+Why: Compensatory mechanism for postural instability and fear of falling.
+
+L_double_support_std
+--------------------
+Description: Variability in double support time
+PD Distinction: INCREASED variability indicates:
+- Inconsistent balance strategy
+- Variable weight transfer timing
+- Unpredictable stability adjustments
+Why: Fluctuating postural control and confidence.
+
+R_double_support_mean, R_double_support_std
+--------------------------------------------
+Description: Right foot double support features
+PD Distinction: Same patterns
+
+L_stance_ratio
+--------------
+Description: Stance time as proportion of total gait cycle
+PD Distinction: INCREASED ratio (>65%) indicates:
+- Disproportionate time spent in stable double support
+- Reduced time in risky single support
+- Conservative gait strategy
+Why: Adaptive response to balance impairment and fall risk.
+
+L_swing_ratio
+-------------
+Description: Swing time as proportion of total cycle
+PD Distinction: DECREASED ratio (<35%) indicates:
+- Reduced dynamic phase
+- Conservative stepping pattern
+- Shuffling gait characteristics
+Why: Compensation for reduced balance and propulsion.
+
+R_stance_ratio, R_swing_ratio
+-----------------------------
+Description: Right foot phase ratios
+PD Distinction: Same patterns
+
+================================================================================
+5. FORCE PRODUCTION FEATURES
+================================================================================
+
+L_peak_force_mean
+-----------------
+Description: Average maximum force during left steps
+PD Distinction: VARIABLE changes - may be increased or decreased:
+- Increased: Stiff-legged gait with hard heel strikes
+- Decreased: Weak push-off and reduced propulsion
+Why: Altered muscle tone and force modulation.
+
+L_peak_force_std
+----------------
+Description: Variability in peak forces
+PD Distinction: INCREASED variability indicates:
+- Inconsistent force application
+- Unreliable heel strikes
+- Variable push-off strength
+Why: Poor force control due to basal ganglia dysfunction.
+
+L_peak_force_cv
+---------------
+Description: Coefficient of variation for peak forces
+PD Distinction: INCREASED CV indicates proportional inconsistency
+Why: Unreliable force generation relative to average.
+
+R_peak_force_mean, R_peak_force_std, R_peak_force_cv
+-----------------------------------------------------
+Description: Right foot peak force features
+PD Distinction: Same patterns, potential asymmetry
+
+L_impulse_mean
+--------------
+Description: Average total force impulse (area under force curve)
+PD Distinction: DECREASED impulse indicates:
+- Reduced total force production
+- Weaker push-off
+- Shorter force application time
+Why: Bradykinesia and reduced muscle activation.
+
+L_impulse_std
+-------------
+Description: Variability in force impulse
+PD Distinction: INCREASED variability indicates:
+- Inconsistent force generation
+- Variable push-off strength
+- Unreliable propulsion
+Why: Fluctuating motor unit recruitment.
+
+L_impulse_cv
+------------
+Description: Coefficient of variation for impulse
+PD Distinction: INCREASED CV indicates proportional inconsistency
+Why: Unreliable total force output.
+
+R_impulse_mean, R_impulse_std, R_impulse_cv
+--------------------------------------------
+Description: Right foot impulse features
+PD Distinction: Same patterns
+
+================================================================================
+6. SIGNAL QUALITY & SMOOTHNESS
+================================================================================
+
+L_jerk_mean
+-----------
+Description: Average rate of force change (movement smoothness)
+PD Distinction: INCREASED jerk indicates:
+- Less smooth force application
+- Jerky movements
+- Poor force control
+Why: Discontinuous muscle activation patterns.
+
+L_jerk_std
+----------
+Description: Variability in jerk
+PD Distinction: INCREASED variability indicates:
+- Inconsistent movement smoothness
+- Variable force control
+- Unpredictable movement quality
+Why: Fluctuating motor control quality.
+
+R_jerk_mean, R_jerk_std
+-----------------------
+Description: Right foot jerk features
+PD Distinction: Same patterns
+
+L_dominant_frequency
+--------------------
+Description: Main frequency component in left gait
+PD Distinction: OFTEN INCREASED frequency due to:
+- Shorter, quicker steps (festination)
+- Hurried gait pattern
+- Reduced step length
+Why: Compensatory strategy for instability.
+
+L_spectral_entropy
+------------------
+Description: Complexity of force frequency spectrum
+PD Distinction: DECREASED entropy indicates:
+- Simpler frequency composition
+- Less complex motor output
+- More stereotyped movement
+Why: Reduced neural integration complexity.
+
+L_gait_power_ratio
+------------------
+Description: Proportion of power in gait frequency band (0.3-3.0 Hz)
+PD Distinction: ALTERED ratio may indicate:
+- Different frequency distribution
+- Changed harmonic content
+- Altered movement rhythm
+Why: Modified neural oscillatory patterns.
+
+R_dominant_frequency, R_spectral_entropy, R_gait_power_ratio
+-------------------------------------------------------------
+Description: Right foot spectral features
+PD Distinction: Same patterns
+
+================================================================================
+7. BILATERAL ASYMMETRY FEATURES
+================================================================================
+
+asymm_stride_time_mean
+----------------------
+Description: Left-right difference in average stride time
+PD Distinction: INCREASED asymmetry in early-stage PD due to:
+- Hemiparkinsonism (one-sided symptoms)
+- Uneven step timing
+- Asymmetric motor impairment
+Why: Unilateral dopamine depletion in early disease stages.
+
+asymm_stride_time_cv
+--------------------
+Description: Left-right difference in stride time variability
+PD Distinction: INCREASED asymmetry indicates:
+- Different variability patterns between sides
+- Uneven rhythm disruption
+- Asymmetric motor control impairment
+Why: Differential basal ganglia involvement.
+
+asymm_dfa_alpha
+---------------
+Description: Left-right difference in fractal scaling
+PD Distinction: INCREASED asymmetry indicates:
+- Different complexity loss between sides
+- Uneven dynamic impairment
+- Asymmetric neural control disruption
+Why: Unilateral disruption of complex gait control.
+
+asymm_poincare_SD1
+------------------
+Description: Left-right difference in short-term variability
+PD Distinction: INCREASED asymmetry indicates:
+- Different automatic control impairment
+- Uneven step-to-step adjustment capacity
+- Asymmetric gait automaticity loss
+Why: Differential impairment of automatic movement control.
+
+asymm_poincare_SD2
+------------------
+Description: Left-right difference in long-term variability
+PD Distinction: INCREASED asymmetry indicates:
+- Different adaptive capacity between sides
+- Uneven pattern variability
+- Asymmetric long-term control
+Why: Differential involvement of adaptive control systems.
+
+asymm_sample_entropy
+--------------------
+Description: Left-right difference in gait regularity
+PD Distinction: INCREASED asymmetry indicates:
+- Different complexity patterns
+- Uneven regularity changes
+- Asymmetric dynamic structure
+Why: Differential complexity disruption.
+
+asymm_stance_phase_mean
+-----------------------
+Description: Left-right difference in stance time
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven weight bearing
+- Different stability strategies
+- Asymmetric postural control
+Why: Differential balance impairment.
+
+asymm_swing_phase_mean
+----------------------
+Description: Left-right difference in swing time
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven leg advancement
+- Different dynamic control
+- Asymmetric propulsion
+Why: Differential motor coordination impairment.
+
+asymm_stance_ratio
+------------------
+Description: Left-right difference in stance proportion
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven phase distribution
+- Different gait strategies
+- Asymmetric stability approach
+Why: Differential compensatory mechanisms.
+
+asymm_peak_force_mean
+---------------------
+Description: Left-right difference in peak force
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven force production
+- Different muscle tone
+- Asymmetric strength application
+Why: Differential force control impairment.
+
+asymm_impulse_mean
+------------------
+Description: Left-right difference in total force impulse
+PD Distinction: INCREASED asymmetry indicates:
+- Uneven total force output
+- Different propulsion strength
+- Asymmetric push-off capacity
+Why: Differential motor unit recruitment patterns.
+
+================================================================================
+
+================================================================================
+
+
+
+These features capture the fundamental neural control deficits in Parkinson's:
+- Loss of automatic movement control
+- Reduced complexity and adaptability  
+- Increased variability and instability
+- Compensatory strategies for balance
+- Asymmetric motor impairment
+
+The combination of temporal, dynamic, and bilateral features provides a
+comprehensive quantification of Parkinsonian gait disturbances.

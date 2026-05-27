@@ -1,0 +1,5 @@
+RBF accuracy 0.806
+==================================================================================
+'L2__maximum', 'L2__absolute_maximum', 'R2__maximum', 'R2__absolute_maximum', 'R6__median', 'L6__median',
+        'R5__median', 'L8__median','L2__standard_deviation'
+==================================================================================

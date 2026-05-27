@@ -1,0 +1,60 @@
+======================================================================
+CHANNEL ATTENTION ANALYSIS REPORT
+======================================================================
+
+MODEL: ChannelAttentionLSTM
+Validation Accuracy: 0.8205
+Total Channels: 18
+Mean Attention Weight: 0.5429
+Std Attention Weight: 0.3180
+
+CHANNEL IMPORTANCE RANKING:
+--------------------------------------------------
+Rank   Channel    Weight       % of Max    
+--------------------------------------------------
+1      17         0.9766       100.0       %
+2      7          0.9469       97.0        %
+3      9          0.8990       92.0        %
+4      8          0.8577       87.8        %
+5      16         0.8375       85.7        %
+6      15         0.8371       85.7        %
+7      6          0.8246       84.4        %
+8      2          0.6710       68.7        %
+9      14         0.6485       66.4        %
+10     10         0.5988       61.3        %
+11     5          0.3932       40.3        %
+12     4          0.2757       28.2        %
+13     11         0.2390       24.5        %
+14     18         0.2127       21.8        %
+15     12         0.2021       20.7        %
+16     3          0.1630       16.7        %
+17     13         0.1237       12.7        %
+18     19         0.0651       6.7         %
+
+
+RECOMMENDATIONS:
+--------------------------------------------------
+1. For 80% of discriminative power: Use top 10 channels
+2. For 90% of discriminative power: Use top 13 channels
+3. Minimal setup (70% power): Use top 7 channels
+
+TOP CHANNELS TO FOCUS ON:
+--------------------------------------------------
+Channel 17 (weight: 0.9766)
+Channel 7 (weight: 0.9469)
+Channel 9 (weight: 0.8990)
+Channel 8 (weight: 0.8577)
+Channel 16 (weight: 0.8375)
+Channel 15 (weight: 0.8371)
+Channel 6 (weight: 0.8246)
+Channel 2 (weight: 0.6710)
+Channel 14 (weight: 0.6485)
+Channel 10 (weight: 0.5988)
+
+CHANNELS TO CONSIDER REMOVING:
+--------------------------------------------------
+Channel 19 (weight: 0.0651)
+Channel 13 (weight: 0.1237)
+Channel 3 (weight: 0.1630)
+Channel 12 (weight: 0.2021)
+Channel 18 (weight: 0.2127)

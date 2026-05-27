@@ -1,0 +1,31 @@
+HIDDEN_DIM = 64
+```
+
+**Correct descriptions:**
+- ✅ "LSTM has **64 hidden units per direction**"
+- ✅ "Bidirectional LSTM with **64-dim hidden state per direction**"
+- ✅ "LSTM output is **128-dimensional** (64 forward + 64 backward)"
+- ✅ "Total LSTM hidden units: **128** (bidirectional)"
+
+**Avoid saying:**
+- ❌ "LSTM has 64 neurons" (ambiguous - per direction or total?)
+
+### **Architecture Flow:**
+```
+Input: (batch, 1000, 10)  # 10 = len(CHANNELS)
+         ↓
+Bidirectional LSTM (hidden_dim=64)
+         ↓
+Output: (batch, 1000, 128)  # 64 forward + 64 backward
+         ↓
+LayerNorm(128)
+         ↓
+Take last timestep: (batch, 128)
+         ↓
+FC Layer 1: 128 → 64
+         ↓
+ReLU + Dropout
+         ↓
+FC Layer 2: 64 → 1
+         ↓
+Sigmoid → probability

@@ -1,0 +1,24 @@
+1: hidden dim 64, batch 16, window 20s, oversampled, best channels, seq_len 2000
+2: hidden dim 64, batch 32, window 20s, oversampled, best channels, seq_len 2000
+3: hidden dim 96, batch 32, window 20s, oversampled, best channels, seq_len 2000
+4: hidden dim 96, batch 16, window 20s, oversampled, best channels, seq_len 2000
+5: hidden dim 80, batch 32, window 20s, oversampled, best channels
+6: hidden dim 80, batch 16, window 20s, oversampled, best channels
+7: : hidden dim 64, batch 32, window 20s, oversampled,all channels, seq_len 2000
+8: hidden dim 64, batch 16, window 20s, oversampled, all channels, seq_len 2000
+9: hidden dim 64, batch 64, window 20s, oversampled, best channels, seq_len 2000
+10: hidden dim 64, batch 64, window 20s, oversampled, all channels, seq_len 2000
+11:hidden dim 64, batch 32, window 20s, oversampled, best channels, seq_len 2000
+12: hidden dim 96, batch 16, window 20s, oversampled, best channels, seq_len 2000
+13: hidden dim 96, batch 16, window 20s, oversampled, all channels, seq_len 2000
+14: hidden dim 96, batch 16, window 20s, oversampled, best channels, seq_len 2000
+15:hidden dim 96, batch 32, window 20s, oversampled, best channels, seq_len 2000
+16:hidden dim 96, batch 32, window 20s, oversampled, all channels, seq_len 2000
+17:hidden dim 96, batch 64, window 20s, oversampled, all channels, seq_len 2000
+18: hidden dim 96, batch 64, window 20s, oversampled, best channels, seq_len 2000
+19: hidden dim 128, batch 16, window 20s, oversampled, best channels, seq_len 2000
+20: hidden dim 128, batch 16, window 20s, oversampled, all channels, seq_len 2000
+21: hidden dim 128, batch 32, window 20s, oversampled, best, seq_len 2000,
+22: hidden dim 128, batch 32, window 20s, oversampled, all channels, seq_len 2000
+23: hidden dim 128, batch 64, window 20s, oversampled, best channels, seq_len 2000
+24: hidden dim 128, batch 64, window 20s, oversampled, all channels, seq_len 2000
